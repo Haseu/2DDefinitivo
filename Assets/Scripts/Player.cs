@@ -16,9 +16,9 @@ public class Player : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        playerAnimator = GetComponent<Animator>();
+    { 
         playerRb = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -63,9 +63,10 @@ public class Player : MonoBehaviour
 
         playerAnimator.SetBool("grounded", grounded);
         playerAnimator.SetInteger("idAnimation", idAnimation);
+        playerAnimator.SetFloat("speedY", playerRb.velocity.y);
     }
 
-    private void FixedUpdate() 
+    private void FixedUpdate() //Taxa de atualização fixa 0.02
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, 0.02f);    
     }
