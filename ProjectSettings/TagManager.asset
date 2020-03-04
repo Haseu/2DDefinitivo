@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Caixa
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -13,8 +15,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Ground
+  - Interaction
   - 
   - 
   - 
@@ -38,6 +40,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1097884031
+    locked: 0
+  - name: Walls
+    uniqueID: 554793855
+    locked: 0
+  - name: Walls Decoration
+    uniqueID: 1313983619
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Platafforms
+    uniqueID: 2637983059
+    locked: 0
+  - name: Decoration First
+    uniqueID: 305021739
     locked: 0
