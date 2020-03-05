@@ -33,6 +33,10 @@ public class DamageControll : MonoBehaviour
     private bool getHited;
     private bool dead;
 
+    [Header("Configuração de checagem do chão")]
+    public Transform groundedCheck;
+    public LayerMask isGround;
+
 
     // Start is called before the first frame update
     void Start()
@@ -131,7 +135,7 @@ public class DamageControll : MonoBehaviour
                 {
                     dead = true;
                     animator.SetInteger("idAnimation", 3);
-                    Destroy(this.gameObject, 2);
+                    StartCoroutine(this.spawnLoot());
                 }
 
                 print("tomou "+actualLife+" de dano do tipo " + gameController.damageType[damageType]);
@@ -186,5 +190,16 @@ public class DamageControll : MonoBehaviour
         spriteRenderer.color = characterColor[0];
         getHited = false;
         lifeBar.SetActive(false);
+    }
+
+    private IEnumerator spawnLoot()
+    {
+        yield return new WaitForSeconds(1);
+        GameObject deathFx = Instantiate(gameController.deathFx, groundedCheck.position, transform.localRotation);
+        yield return new WaitForSeconds(0.5f);
+        spriteRenderer.enabled = false;
+        yield return new WaitForSeconds(0.7f);
+        Destroy(deathFx);
+        Destroy(this.gameObject);
     }
 }
