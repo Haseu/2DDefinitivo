@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour
 {
     public int teste;
     public string[] damageType;
+    public GameObject[] damageFx;
+    
     // Start is called before the first frame update
     void Start()
     {

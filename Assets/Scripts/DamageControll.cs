@@ -140,6 +140,9 @@ public class DamageControll : MonoBehaviour
                 damageTextTemp.GetComponent<TextMeshPro>().text = damage.ToString();
                 damageTextTemp.GetComponent<MeshRenderer>().sortingLayerName = HUDLAYERNAME;
 
+                GameObject fxTemp = Instantiate(gameController.damageFx[damageType], transform.position, transform.localRotation);
+                Destroy(fxTemp, 1);
+
                 int forceX = 50;
                 if(player.mirrored)
                 {
