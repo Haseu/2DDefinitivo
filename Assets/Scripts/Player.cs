@@ -85,6 +85,10 @@ public class Player : MonoBehaviour
 
         if(Input.GetButtonDown("Fire1") && v >= 0 && !isAttacking && objetcInteraction != null)
         {
+            if(objetcInteraction.tag == "Door")
+            {
+                objetcInteraction.GetComponent<Door>().playerTransform = this.transform;
+            }
             objetcInteraction.SendMessage("interact", SendMessageOptions.DontRequireReceiver);
         }
 
