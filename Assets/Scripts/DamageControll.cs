@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DamageControll : MonoBehaviour
 {
+    private const string HUDLAYERNAME = "HUD";
     private GameController gameController;
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
+
     [Header("Configuração de Vida")]
     public int life;
     public int actualLife;
@@ -28,12 +31,14 @@ public class DamageControll : MonoBehaviour
     public float knockX;
     private float kx;
     private bool getHited;
+    private bool dead;
 
 
     // Start is called before the first frame update
     void Start()
     {
         gameController = FindObjectOfType(typeof(GameController)) as GameController;
+        animator = GetComponent<Animator>();
         player = FindObjectOfType(typeof(Player)) as Player;
         spriteRenderer = GetComponent<SpriteRenderer>();
         lifeBar.SetActive(false);
@@ -84,13 +89,16 @@ public class DamageControll : MonoBehaviour
         }
 
         knockPosition.localPosition = new Vector3(kx, knockPosition.localPosition.y, 0);
-
-
-
+        animator.SetBool("grounded", true);
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
+        if (dead)
+        {
+            return;
+        }
+
         switch (other.tag)
         {
             case  "Weapon":
@@ -100,8 +108,10 @@ public class DamageControll : MonoBehaviour
                 lifeBar.SetActive(true);
                 getHited = true;
                 WeaponInfo weaponInfo = other.gameObject.GetComponent<WeaponInfo>();
+
+                animator.SetTrigger("hit");
                 
-                float weaponDamage = weaponInfo.damage;
+                float weaponDamage = Random.Range(weaponInfo.minDamage, weaponInfo.maxDamage + 1);
                 int damageType = weaponInfo.typeDamage;
 
                 int damage = Mathf.RoundToInt(weaponDamage + (weaponDamage * (resistDamage[damageType] / 100)));
@@ -119,14 +129,16 @@ public class DamageControll : MonoBehaviour
 
                 if(actualLife <= 0)
                 {
-                    Destroy(this.gameObject);
+                    dead = true;
+                    animator.SetInteger("idAnimation", 3);
+                    Destroy(this.gameObject, 2);
                 }
 
                 print("tomou "+actualLife+" de dano do tipo " + gameController.damageType[damageType]);
 
                 GameObject damageTextTemp = Instantiate(damageTextPrefab, transform.position, transform.rotation);
-                damageTextTemp.GetComponent<TextMesh>().text = damage.ToString();
-                damageTextTemp.GetComponent<MeshRenderer>().sortingLayerName = "HUD";
+                damageTextTemp.GetComponent<TextMeshPro>().text = damage.ToString();
+                damageTextTemp.GetComponent<MeshRenderer>().sortingLayerName = HUDLAYERNAME;
 
                 int forceX = 50;
                 if(player.mirrored)

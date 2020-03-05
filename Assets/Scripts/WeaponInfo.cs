@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WeaponInfo : MonoBehaviour
 {
-    public float damage;
+    public float minDamage; //Dano Minimo da arma
+    public float maxDamage; //Dano Maximo da arma
     public int typeDamage;
 
 }
