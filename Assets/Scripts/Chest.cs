@@ -7,13 +7,11 @@ public class Chest : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public Sprite[] imageObject;
     public bool open;
-    private GameController gameController;
     public GameObject[] loot;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameController = GameObject.FindObjectOfType<GameController>() as GameController;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
@@ -25,6 +23,7 @@ public class Chest : MonoBehaviour
             spriteRenderer.sprite = imageObject[1];
             
             StartCoroutine(this.spawnLoot());
+            GetComponent<Collider2D>().enabled = false;
         }    
     }
 

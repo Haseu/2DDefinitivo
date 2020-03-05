@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
 
     private void interact()
     {
-        Debug.DrawRay(hand.position, direction * 0.08f, Color.red);
+        //Debug.DrawRay(hand.position, direction * 0.08f, Color.red);
         RaycastHit2D hit = Physics2D.Raycast(hand.position, direction, 0.08f, interaction);
 
         if(hit)
