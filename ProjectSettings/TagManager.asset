@@ -20,7 +20,7 @@ TagManager:
   - Interaction
   - Enemy
   - HUD
-  - 
+  - Collectable
   - 
   - 
   - 
@@ -47,7 +47,7 @@ TagManager:
   - name: Walls
     uniqueID: 554793855
     locked: 0
-  - name: Walls Decoration
+  - name: Decoration Object
     uniqueID: 1313983619
     locked: 0
   - name: Default

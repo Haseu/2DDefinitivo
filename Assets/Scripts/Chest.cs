@@ -8,6 +8,7 @@ public class Chest : MonoBehaviour
     public Sprite[] imageObject;
     public bool open;
     private GameController gameController;
+    public GameObject[] loot;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,22 @@ public class Chest : MonoBehaviour
         {
             open = true;
             spriteRenderer.sprite = imageObject[1];
-            gameController.teste += 1;
+            
+            StartCoroutine(this.spawnLoot());
         }    
+    }
+
+    IEnumerator spawnLoot()
+    {
+         //Controle de spawn de loot
+            int qtdCoins = Random.Range(1,5);
+
+            for (int i = 0; i < qtdCoins; i++)
+            {
+                int rand = Random.Range(0,2);
+                GameObject lootTemp = Instantiate(loot[rand], transform.position, transform.localRotation);
+                lootTemp.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-25, 25), 200));   
+                yield return new WaitForSeconds(0.1f);
+            }
     }
 }

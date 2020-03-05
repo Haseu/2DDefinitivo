@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private GameController gameController;
     private Animator playerAnimator;
     private Rigidbody2D playerRb;
     public Transform groundCheck;   // objeto responsável por detectar se o personagem está sobre uma superfície
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
+        gameController = FindObjectOfType(typeof(GameController)) as GameController;
         playerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
 
@@ -161,7 +163,7 @@ public class Player : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Collectable":
-            Destroy(other.gameObject);
+            other.gameObject.SendMessage("collect", SendMessageOptions.DontRequireReceiver);
             break;
         }
     }
