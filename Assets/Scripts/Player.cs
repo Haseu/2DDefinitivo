@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public int idAnimation;         // Indica id da animação
     private float h, v;
     public BoxCollider2D standingCollider, crounchCollider;
+    public int life;
+    public int actualLife;
 
     //Interação com items e objetos
     private Vector3 direction = Vector3.right;
@@ -34,6 +36,8 @@ public class Player : MonoBehaviour
         gameController = FindObjectOfType(typeof(GameController)) as GameController;
         playerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+
+        this.actualLife = this.life;
 
         foreach (GameObject weapon in weapons)
         {
