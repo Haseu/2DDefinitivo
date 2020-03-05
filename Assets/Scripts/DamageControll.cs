@@ -37,6 +37,9 @@ public class DamageControll : MonoBehaviour
     public Transform groundedCheck;
     public LayerMask isGround;
 
+    [Header("Configuração de Loot")]
+    public GameObject loot;
+
 
     // Start is called before the first frame update
     void Start()
@@ -198,6 +201,16 @@ public class DamageControll : MonoBehaviour
         GameObject deathFx = Instantiate(gameController.deathFx, groundedCheck.position, transform.localRotation);
         yield return new WaitForSeconds(0.5f);
         spriteRenderer.enabled = false;
+
+        //Controle de spawn de loot
+        int qtdCoins = Random.Range(1,5);
+
+        for (int i = 0; i < qtdCoins; i++)
+        {
+            GameObject lootTemp = Instantiate(loot, transform.position, transform.localRotation);
+            lootTemp.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-25, 25), 200));   
+            yield return new WaitForSeconds(0.1f);
+        }
         yield return new WaitForSeconds(0.7f);
         Destroy(deathFx);
         Destroy(this.gameObject);

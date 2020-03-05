@@ -2974,6 +2974,7 @@ MonoBehaviour:
   - {fileID: 890141873189754747, guid: 047b4ff3646b64b43a45cd0a97e4ebe3, type: 3}
   - {fileID: 5275456709825618851, guid: 20c0db60b9901f24786d463ab2b91cbd, type: 3}
   - {fileID: 0}
+  deathFx: {fileID: 3805457943035343234, guid: 27eff559f61275d4f9fd9c08fe2dfb5b, type: 3}
 --- !u!4 &193062233
 Transform:
   m_ObjectHideFlags: 0
@@ -8711,6 +8712,7 @@ MonoBehaviour:
   isGround:
     serializedVersion: 2
     m_Bits: 256
+  loot: {fileID: 2297603579747857221, guid: d455ab693b408664e811f293e1c53465, type: 3}
 --- !u!50 &817267175
 Rigidbody2D:
   serializedVersion: 4

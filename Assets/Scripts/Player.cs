@@ -158,6 +158,12 @@ public class Player : MonoBehaviour
         {
 
         }
+        switch (other.gameObject.tag)
+        {
+            case "Collectable":
+            Destroy(other.gameObject);
+            break;
+        }
     }
 
     private void weaponControll(int id)
