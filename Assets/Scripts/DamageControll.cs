@@ -14,6 +14,7 @@ public class DamageControll : MonoBehaviour
     public Transform hpBar; //Objeto indicador da quantidade de vida
     public Color[] characterColor; //Controle de cores do personagem
     private float percentLife;
+    public GameObject damageTextPrefab; //Exibe a quantidade de dano recebido
     
     [Header("Configuração de Resistência/Fraqueza")]
     public float[] resistDamage; // Sistema de resistencia / fraquesa contra determinado tipo de dano
@@ -122,6 +123,19 @@ public class DamageControll : MonoBehaviour
                 }
 
                 print("tomou "+actualLife+" de dano do tipo " + gameController.damageType[damageType]);
+
+                GameObject damageTextTemp = Instantiate(damageTextPrefab, transform.position, transform.rotation);
+                damageTextTemp.GetComponent<TextMesh>().text = damage.ToString();
+                damageTextTemp.GetComponent<MeshRenderer>().sortingLayerName = "HUD";
+
+                int forceX = 50;
+                if(player.mirrored)
+                {
+                    forceX *= -1;
+                }
+
+                damageTextTemp.GetComponent<Rigidbody2D>().AddForce(new Vector2(forceX, 230));
+                Destroy(damageTextTemp, 1f);
 
                 GameObject knockTemp = Instantiate(knockForcePrefab, knockPosition.position, knockPosition.localRotation);
                 Destroy(knockTemp, 0.02f);

@@ -8590,6 +8590,8 @@ MonoBehaviour:
   characterColor:
   - {r: 0.9339623, g: 0.074893214, b: 0.12583351, a: 1}
   - {r: 0.9333334, g: 0.07450981, b: 0.1254902, a: 0.27058825}
+  damageTextPrefab: {fileID: 8397617388206841893, guid: 9e3cb73b24f64e648848b6d064721433,
+    type: 3}
   resistDamage:
   - 0
   - 50
