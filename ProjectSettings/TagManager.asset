@@ -17,8 +17,8 @@ TagManager:
   - 
   - Ground
   - Interaction
-  - 
-  - 
+  - Enemy
+  - HUD
   - 
   - 
   - 
@@ -57,4 +57,7 @@ TagManager:
     locked: 0
   - name: Decoration First
     uniqueID: 305021739
+    locked: 0
+  - name: HUD
+    uniqueID: 1294582687
     locked: 0
