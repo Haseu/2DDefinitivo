@@ -3327,10 +3327,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 233955170}
-  - component: {fileID: 233955171}
   - component: {fileID: 233955169}
   - component: {fileID: 233955168}
   - component: {fileID: 233955167}
+  - component: {fileID: 233955171}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -3431,6 +3431,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc72d4b84934f85428cffa4a6d5f8e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpBar:
+  - {fileID: 577806060}
+  - {fileID: 154222361}
+  - {fileID: 2066994367}
+  - {fileID: 915649464}
+  - {fileID: 1449387598}
   half: {fileID: -3131051059632500210, guid: 93ca8f1c07910754880959f144233794, type: 3}
   full: {fileID: 5464961714324258731, guid: 93ca8f1c07910754880959f144233794, type: 3}
 --- !u!4 &255332323 stripped
@@ -12118,10 +12124,10 @@ RectTransform:
   m_Father: {fileID: 1828957703}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.27, y: 0}
-  m_SizeDelta: {x: 237.99, y: 50}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -105.56, y: 0.43502}
+  m_SizeDelta: {x: 188.91, y: 49.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1734004912
 MonoBehaviour:
@@ -12276,8 +12282,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -178.35, y: 0}
-  m_SizeDelta: {x: 254.69, y: 100}
+  m_AnchoredPosition: {x: -154.96, y: -0.70000076}
+  m_SizeDelta: {x: 207.91, y: 48.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1828957704
 MonoBehaviour:
@@ -12299,7 +12305,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 4841367913988442963, guid: eebd6099a491eb843929fbda145e90d8,
     type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4

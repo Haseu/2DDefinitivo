@@ -22,6 +22,5 @@ public class GameController : MonoBehaviour
     void Update()
     {
         goldText.text = gold.ToString("N0", CultureInfo.CurrentCulture);
-        //goldText.text = string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:#,###}", gold);
     }
 }

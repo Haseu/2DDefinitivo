@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     //Sistema de Armas
     public GameObject[] weapons;
 
+    public GameObject alertEffect;
+
     // Start is called before the first frame update
     void Start()
     { 
@@ -150,10 +152,12 @@ public class Player : MonoBehaviour
         if(hit)
         {
             objetcInteraction = hit.collider.gameObject;
+            alertEffect.SetActive(true);
         }
         else
         {
             objetcInteraction = null;
+            alertEffect.SetActive(false);
         }
     }
 
