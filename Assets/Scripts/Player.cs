@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private GameController gameController;
     private Animator playerAnimator;
     private Rigidbody2D playerRb;
+    private SpriteRenderer spriteRenderer;
     public Transform groundCheck;   // objeto responsável por detectar se o personagem está sobre uma superfície
     public LayerMask isGround;      // Indica se a superficie para teste do grounded
     public float speed;             // Velocidade de movimento do personagem
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
         gameController = FindObjectOfType(typeof(GameController)) as GameController;
         playerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         this.actualLife = this.life;
 
@@ -85,10 +87,6 @@ public class Player : MonoBehaviour
 
         if(Input.GetButtonDown("Fire1") && v >= 0 && !isAttacking && objetcInteraction != null)
         {
-            if(objetcInteraction.tag == "Door")
-            {
-                objetcInteraction.GetComponent<Door>().playerTransform = this.transform;
-            }
             objetcInteraction.SendMessage("interact", SendMessageOptions.DontRequireReceiver);
         }
 
@@ -191,13 +189,12 @@ public class Player : MonoBehaviour
     }
 
 
-    private void OnCollisionExit2D(Collision2D other) 
+    public void changeMaterial(Material material)
     {
-        
-    }
-
-    private void OnCollisionStay2D(Collision2D other) 
-    {
-        
+        spriteRenderer.material = material;
+        foreach (GameObject weapon in weapons)
+        {
+            weapon.GetComponent<SpriteRenderer>().material = material;
+        }
     }
 }

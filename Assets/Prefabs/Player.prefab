@@ -673,6 +673,8 @@ MonoBehaviour:
   crounchCollider: {fileID: 1021439026418678348}
   life: 10
   actualLife: 0
+  light2D: {fileID: 2100000, guid: 59ef37547fa8f9d49b7d26042500cf7d, type: 2}
+  standard2D: {fileID: 2100000, guid: bf9420e06e36a5940abfe816057f44fc, type: 2}
   hand: {fileID: 1597906406}
   interaction:
     serializedVersion: 2

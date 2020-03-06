@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public Transform playerTransform;
+    public Player player;
     public Transform destination;
     private Fade fade;
     public bool dark;
@@ -14,6 +14,7 @@ public class Door : MonoBehaviour
     void Start()
     {
         fade = FindObjectOfType(typeof(Fade)) as Fade;    
+        player = FindObjectOfType(typeof(Player)) as Player;    
     }
 
     // Update is called once per frame
@@ -31,21 +32,21 @@ public class Door : MonoBehaviour
     {
         fade.fadeIn();
         yield return new WaitWhile(() => fade.darkImage.color.a < 0.95f);
-        playerTransform.gameObject.SetActive(false);
+        player.gameObject.SetActive(false);
 
         switch (dark)
         {
             case true:
-                playerTransform.gameObject.GetComponent<SpriteRenderer>().material = light2D;
+                player.changeMaterial(light2D);
                 break;
             case false:
-                playerTransform.gameObject.GetComponent<SpriteRenderer>().material = standard2D;
+                player.changeMaterial(standard2D); ;
                 break;
         }
 
-        playerTransform.position = destination.position;
+        player.transform.position = destination.position;
         yield return new WaitForSeconds(0.5f);
-        playerTransform.gameObject.SetActive(true);
+        player.gameObject.SetActive(true);
         fade.fadeOut();
     }
 }
