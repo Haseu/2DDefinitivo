@@ -12,6 +12,11 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI goldText ;
     private Fade fade;
 
+    [Header("Banco de dados de Armas")]
+    public Sprite[]  spriteWeaponsPosition1;
+    public Sprite[]  spriteWeaponsPosition2;
+    public Sprite[]  spriteWeaponsPosition3;
+
     public int gold = 0; // Armazena de quantidade de ouro que coletamos
     // Start is called before the first frame update
     void Start()

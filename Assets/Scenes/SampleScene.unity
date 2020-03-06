@@ -2743,6 +2743,39 @@ MonoBehaviour:
   - {fileID: 0}
   deathFx: {fileID: 3805457943035343234, guid: 27eff559f61275d4f9fd9c08fe2dfb5b, type: 3}
   goldText: {fileID: 1734004912}
+  spriteWeaponsPosition1:
+  - {fileID: 4942803658038726614, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -9004990608046106943, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -4470654044548505675, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -2689349333746839185, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -1183829936002771988, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 1857488987712296977, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -1873774783473440122, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -3702229310380340002, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 7579411005701190920, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 801375890109350175, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  spriteWeaponsPosition2:
+  - {fileID: 6123003023063038561, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 8289387723579576647, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 788015303910585071, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 1340437603416802206, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -993536727369214721, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -1223835181241114015, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -5292343366637218935, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -1676212896523138592, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 7108768019886350960, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 5558760092411029440, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  spriteWeaponsPosition3:
+  - {fileID: 4978276593797209138, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -8675077286395491812, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 7441372264213655823, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -841782673843346218, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 6364903689134042001, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 1901863140318548941, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -5370655801033658038, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -2309659259946414841, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: 3699861509399247437, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
+  - {fileID: -5566121243414835775, guid: d2e9d6d1987582244a84831d205e17e5, type: 3}
   gold: 0
 --- !u!4 &193062233
 Transform:
@@ -6951,6 +6984,7 @@ GameObject:
   - component: {fileID: 817267173}
   - component: {fileID: 817267178}
   - component: {fileID: 817267179}
+  - component: {fileID: 817267180}
   m_Layer: 10
   m_Name: Inimigo
   m_TagString: Untagged
@@ -7001,8 +7035,8 @@ MonoBehaviour:
   lifeBar: {fileID: 1658684154}
   hpBar: {fileID: 1438228810}
   characterColor:
-  - {r: 0.9339623, g: 0.074893214, b: 0.12583351, a: 1}
-  - {r: 0.9333334, g: 0.07450981, b: 0.1254902, a: 0.27058825}
+  - {r: 1, g: 0.9764151, b: 0.9764151, a: 1}
+  - {r: 1, g: 1, b: 1, a: 0.27058825}
   damageTextPrefab: {fileID: 7939383631984841212, guid: b41ca3fc1a6b82f47b04dc09e1ada36b,
     type: 3}
   resistDamage:
@@ -7142,6 +7176,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &817267180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817267172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c828077f1fbb444b44a174d2a7a126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: []
+  spriteSheetName: goblin_1
+  activeSpriteSheetName: 
 --- !u!1 &827156272
 GameObject:
   m_ObjectHideFlags: 0
@@ -7248,6 +7297,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915649462}
   m_CullTransparentMesh: 0
+--- !u!1 &987183321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1021439026418678357, guid: ca4a48103723abc43ae13ac4dd5fcbbf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1021439025255957306}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &987183329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987183321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c828077f1fbb444b44a174d2a7a126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: []
+  spriteSheetName: Knight
+  activeSpriteSheetName: 
 --- !u!1 &1004028842
 GameObject:
   m_ObjectHideFlags: 0
@@ -12216,7 +12286,7 @@ MonoBehaviour:
   m_ScreenY: 0.5
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.1
-  m_DeadZoneHeight: 0.1
+  m_DeadZoneHeight: 0.5
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
@@ -13700,6 +13770,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021439026418678351, guid: ca4a48103723abc43ae13ac4dd5fcbbf,
+        type: 3}
+      propertyPath: weaponId
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021439026418678357, guid: ca4a48103723abc43ae13ac4dd5fcbbf,
         type: 3}

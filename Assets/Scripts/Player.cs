@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     private GameObject objetcInteraction;
 
     //Sistema de Armas
+    public int weaponId;
+    public int equipedWeaponId;
     public GameObject[] weapons;
 
     public GameObject alertEffect;
@@ -47,6 +49,8 @@ public class Player : MonoBehaviour
         {
             weapon.SetActive(false);
         }
+
+        this.changeWeapon(weaponId);
     }
 
     // Update is called once per frame
@@ -114,6 +118,14 @@ public class Player : MonoBehaviour
         playerAnimator.SetBool("grounded", grounded);
         playerAnimator.SetInteger("idAnimation", idAnimation);
         playerAnimator.SetFloat("speedY", playerRb.velocity.y);
+    }
+
+    private void LateUpdate() 
+    {
+        if(weaponId != equipedWeaponId)
+        {
+            this.changeWeapon(weaponId);
+        }
     }
 
     private void FixedUpdate() //Taxa de atualização fixa 0.02
@@ -196,5 +208,15 @@ public class Player : MonoBehaviour
         {
             weapon.GetComponent<SpriteRenderer>().material = material;
         }
+    }
+
+    public void changeWeapon(int weaponId)
+    {
+
+        weapons[0].GetComponent<SpriteRenderer>().sprite = gameController.spriteWeaponsPosition1[weaponId];
+        weapons[1].GetComponent<SpriteRenderer>().sprite = gameController.spriteWeaponsPosition2[weaponId];
+        weapons[2].GetComponent<SpriteRenderer>().sprite = gameController.spriteWeaponsPosition3[weaponId];
+
+        equipedWeaponId = weaponId;
     }
 }
