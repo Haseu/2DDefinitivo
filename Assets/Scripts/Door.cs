@@ -7,6 +7,8 @@ public class Door : MonoBehaviour
     public Transform playerTransform;
     public Transform destination;
     private Fade fade;
+    public bool dark;
+    public Material light2D, standard2D;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,17 @@ public class Door : MonoBehaviour
         fade.fadeIn();
         yield return new WaitWhile(() => fade.darkImage.color.a < 0.95f);
         playerTransform.gameObject.SetActive(false);
+
+        switch (dark)
+        {
+            case true:
+                playerTransform.gameObject.GetComponent<SpriteRenderer>().material = light2D;
+                break;
+            case false:
+                playerTransform.gameObject.GetComponent<SpriteRenderer>().material = standard2D;
+                break;
+        }
+
         playerTransform.position = destination.position;
         yield return new WaitForSeconds(0.5f);
         playerTransform.gameObject.SetActive(true);
