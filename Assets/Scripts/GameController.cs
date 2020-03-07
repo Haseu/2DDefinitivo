@@ -13,9 +13,14 @@ public class GameController : MonoBehaviour
     private Fade fade;
 
     [Header("Banco de dados de Armas")]
+    public string[] weaponName;
+    public int[] weaponPrice;
     public Sprite[]  spriteWeaponsPosition1;
     public Sprite[]  spriteWeaponsPosition2;
     public Sprite[]  spriteWeaponsPosition3;
+    public int[] minDamage;
+    public int[] maxDamage;
+    public int[] typeDamage;
 
     public int gold = 0; // Armazena de quantidade de ouro que coletamos
     // Start is called before the first frame update

@@ -45,8 +45,8 @@ public class Door : MonoBehaviour
         }
 
         player.transform.position = destination.position;
-        yield return new WaitForSeconds(0.5f);
         player.gameObject.SetActive(true);
         fade.fadeOut();
+        
     }
 }

@@ -9,11 +9,14 @@ public class Fade : MonoBehaviour
     public Image darkImage;
     public Color[] transictionColor;
     public float step;
+    private bool transiction;
 
     public void fadeIn()
     {
-        darkPanel.SetActive(true);
-        StartCoroutine("cFadeIn");
+        if(!transiction){
+            darkPanel.SetActive(true);
+            StartCoroutine("cFadeIn");
+        }
     }
 
     public void fadeOut()
@@ -23,6 +26,7 @@ public class Fade : MonoBehaviour
 
     private IEnumerator cFadeIn()
     {
+        transiction = true;
         for (float i = 0; i < 1; i += step)
         {
             darkImage.color = Color.Lerp(transictionColor[0], transictionColor[1], i);
@@ -33,11 +37,13 @@ public class Fade : MonoBehaviour
 
     private IEnumerator cFadeOut()
     {
+        yield return new WaitForSeconds(0.5f);
         for (float i = 0; i < 1; i += step)
         {
             darkImage.color = Color.Lerp(transictionColor[1], transictionColor[0], i);
             yield return new WaitForEndOfFrame();    
         }
         darkPanel.SetActive(false);
+        transiction = false;
     }
 }

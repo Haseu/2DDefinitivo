@@ -137,11 +137,12 @@ public class DamageControll : MonoBehaviour
                 if(actualLife <= 0)
                 {
                     dead = true;
+                    gameObject.layer = LayerMask.NameToLayer("No Interaction");                    
                     animator.SetInteger("idAnimation", 3);
                     StartCoroutine(this.spawnLoot());
                 }
 
-                print("tomou "+actualLife+" de dano do tipo " + gameController.damageType[damageType]);
+                print("tomou "+damage+" de dano do tipo " + gameController.damageType[damageType]);
 
                 GameObject damageTextTemp = Instantiate(damageTextPrefab, transform.position, transform.rotation);
                 damageTextTemp.GetComponent<TextMeshPro>().text = damage.ToString();

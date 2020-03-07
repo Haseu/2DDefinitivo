@@ -212,10 +212,27 @@ public class Player : MonoBehaviour
 
     public void changeWeapon(int weaponId)
     {
+        WeaponInfo tempInfo;
 
         weapons[0].GetComponent<SpriteRenderer>().sprite = gameController.spriteWeaponsPosition1[weaponId];
+        tempInfo = weapons[0].GetComponent<WeaponInfo>();
+        tempInfo.minDamage = gameController.minDamage[weaponId];
+        tempInfo.maxDamage = gameController.maxDamage[weaponId];
+        tempInfo.typeDamage = gameController.typeDamage[weaponId];
+
         weapons[1].GetComponent<SpriteRenderer>().sprite = gameController.spriteWeaponsPosition2[weaponId];
+        tempInfo = weapons[1].GetComponent<WeaponInfo>();
+        tempInfo.minDamage = gameController.minDamage[weaponId];
+        tempInfo.maxDamage = gameController.maxDamage[weaponId];
+        tempInfo.typeDamage = gameController.typeDamage[weaponId];
+
         weapons[2].GetComponent<SpriteRenderer>().sprite = gameController.spriteWeaponsPosition3[weaponId];
+        tempInfo = weapons[2].GetComponent<WeaponInfo>();
+        tempInfo.minDamage = gameController.minDamage[weaponId];
+        tempInfo.maxDamage = gameController.maxDamage[weaponId];
+        tempInfo.typeDamage = gameController.typeDamage[weaponId];
+
+
 
         equipedWeaponId = weaponId;
     }
